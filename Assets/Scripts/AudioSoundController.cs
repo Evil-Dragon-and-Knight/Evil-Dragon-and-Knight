@@ -107,7 +107,12 @@ public class AudioSoundController : MonoBehaviour
 
     #endregion
 
-    private void Awake()
+    private void Start()
+    {
+        UpdateSlider();
+    }
+
+    public void UpdateSlider()
     {
         if (mmSoundManager == null) 
             return;
