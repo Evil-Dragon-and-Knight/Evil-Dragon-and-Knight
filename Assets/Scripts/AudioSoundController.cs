@@ -77,28 +77,28 @@ public class AudioSoundController : MonoBehaviour
     
     #region UpdateVolume
 
-    private void UpdateMaster()
+    public void UpdateMaster()
     {
         if (master == false) return;
         if (masterSlider == null) return;
         mmSoundManager.SetVolumeMaster(constMaxVolume / masterSlider.maxValue * masterSlider.value);
     }
     
-    private void UpdateMusic()
+    public void UpdateMusic()
     {
         if (music == false) return;
         if (musicSlider == null) return;
         mmSoundManager.SetVolumeMusic(constMaxVolume / musicSlider.maxValue * musicSlider.value);
     }
     
-    private void UpdateSfx()
+    public void UpdateSfx()
     {
         if (sfx == false) return;
         if (sfxSlider == null) return;
         mmSoundManager.SetVolumeSfx(constMaxVolume / sfxSlider.maxValue * sfxSlider.value);
     }
     
-    private void UpdateUi()
+    public void UpdateUi()
     {
         if (ui == false) return;
         if (uiSlider == null) return;
@@ -116,16 +116,5 @@ public class AudioSoundController : MonoBehaviour
         GetMusic();
         GetSfx();
         GetUi();
-    }
-
-    public void UpdateSettings()
-    {
-        if (mmSoundManager == null) 
-            return;
-        
-        UpdateMaster();
-        UpdateMusic();
-        UpdateSfx();
-        UpdateUi();
     }
 }
