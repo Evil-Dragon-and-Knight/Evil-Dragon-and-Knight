@@ -139,7 +139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBC30\uACBD\uC74C\uC545"
+  m_text: "\uD6A8\uACFC\uC74C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eee2f35d32af8f445b5ad6ea67c4ca50, type: 2}
   m_sharedMaterial: {fileID: -2290708706446190538, guid: eee2f35d32af8f445b5ad6ea67c4ca50, type: 2}
@@ -232,7 +232,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2148591646346331795}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -390,6 +390,46 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 2148591646346331792}
     m_Modifications:
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_WholeNumbers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7287964665145838440}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayFeedbacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915990825750877058, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4915990825750877060, guid: 4f327f90673dd2744839842f2ae3a09a, type: 3}
       propertyPath: m_Name
       value: SettingSlider
