@@ -46,32 +46,32 @@ public class AudioSoundController : MonoBehaviour
     {
         if (master == false) return;
         if (masterSlider == null) return;
-        masterSlider.value = (int)(masterSlider.maxValue / constMaxVolume *
-                                   mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Master, false));
+        masterSlider.value = Mathf.RoundToInt(masterSlider.maxValue / constMaxVolume *
+                                                mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Master, false));
     }
     
     private void GetMusic()
     {
         if (music == false) return;
         if (musicSlider == null) return;
-        musicSlider.value = (int)(musicSlider.maxValue / constMaxVolume *
-                                  mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Music, false));
+        musicSlider.value = Mathf.RoundToInt(musicSlider.maxValue / constMaxVolume *
+                                              mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Music, false));
     }
     
     private void GetSfx()
     {
         if (sfx == false) return;
         if (sfxSlider == null) return;
-        sfxSlider.value = (int)(sfxSlider.maxValue / constMaxVolume *
-                                mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Sfx, false));
+        sfxSlider.value = Mathf.RoundToInt(sfxSlider.maxValue / constMaxVolume *
+                                            mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.Sfx, false));
     }
     
     private void GetUi()
     {
         if (ui == false) return;
         if (uiSlider == null) return;
-        uiSlider.value = (int)(uiSlider.maxValue / constMaxVolume *
-                               mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.UI, false));
+        uiSlider.value = Mathf.RoundToInt(uiSlider.maxValue / constMaxVolume *
+                                           mmSoundManager.GetTrackVolume(MMSoundManager.MMSoundManagerTracks.UI, false));
     }
     #endregion
     
