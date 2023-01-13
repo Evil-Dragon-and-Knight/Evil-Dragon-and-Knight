@@ -2357,6 +2357,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 505861416}
+    - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayFeedbacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7287964665145838440, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: FeedbacksList.Array.size
       value: 1
@@ -2659,7 +2679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665145838440, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: managedReferences[5054470650093633727].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateSettings
+      value: UpdateUi
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665145838440, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: managedReferences[5054470650093633727].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -9830,7 +9850,7 @@ PrefabInstance:
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 326541681}
+      objectReference: {fileID: 199130833}
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -9841,7 +9861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateSettings
+      value: PlayFeedbacks
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -9849,11 +9869,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioSoundController, Assembly-CSharp
+      value: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: AudioSoundController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665047343739, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -10709,11 +10733,11 @@ PrefabInstance:
       objectReference: {fileID: 326541681}
     - target: {fileID: 7287964665145838440, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: managedReferences[5054470650093633720].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665145838440, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: managedReferences[5054470650093633720].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateSettings
+      value: UpdateMusic
       objectReference: {fileID: 0}
     - target: {fileID: 7287964665145838440, guid: 9c8521efea2118142bb220c7f078c4a1, type: 3}
       propertyPath: managedReferences[5054470650093633720].PlayEvents.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
