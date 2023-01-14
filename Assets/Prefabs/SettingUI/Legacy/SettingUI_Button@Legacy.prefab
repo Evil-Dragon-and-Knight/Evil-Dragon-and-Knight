@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 8715971094838749710}
   - component: {fileID: 1338752297251948720}
   m_Layer: 0
-  m_Name: SettingUI_Button
+  m_Name: SettingUI_Button@Legacy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
