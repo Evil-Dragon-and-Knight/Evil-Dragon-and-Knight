@@ -75,7 +75,14 @@ public class KeySetting : MonoBehaviour
         KeyCode.W,
         KeyCode.X,
         KeyCode.Y,
-        KeyCode.Z
+        KeyCode.Z,
+        KeyCode.UpArrow,
+        KeyCode.DownArrow,
+        KeyCode.LeftArrow,
+        KeyCode.RightArrow,
+        KeyCode.LeftShift,
+        KeyCode.RightShift,
+        KeyCode.Space
     };
 
     #endregion
@@ -131,14 +138,42 @@ public class KeySetting : MonoBehaviour
 #endif
     }
 
+    private string ConvertKeyCode(KeyCode keyCode)
+    {
+        string cKeyCode;
+        switch (keyCode)
+        {
+            case KeyCode.LeftShift:
+            case KeyCode.RightShift:
+                cKeyCode = "Shift";
+                break;
+            case KeyCode.UpArrow:
+                cKeyCode = "↑";
+                break;
+            case KeyCode.DownArrow:
+                cKeyCode = "↓";
+                break;
+            case KeyCode.LeftArrow:
+                cKeyCode = "←";
+                break;
+            case KeyCode.RightArrow:
+                cKeyCode = "→";
+                break;
+            default:
+                cKeyCode = $"{keyCode}";
+                break;
+        }
+        return cKeyCode;
+    }
+    
     public void UpdateSettings()
     {
-        _upBtn1.text = $"{UP[0]}";
-        _upBtn2.text = $"{UP[1]}";
-        _downBtn1.text = $"{DOWN[0]}";
-        _downBtn2.text = $"{DOWN[1]}";
-        _attackBtn1.text = $"{ATTACK[0]}";
-        _attackBtn2.text = $"{ATTACK[1]}";
+        _upBtn1.text = ConvertKeyCode(UP[0]);
+        _upBtn2.text = ConvertKeyCode(UP[1]);
+        _downBtn1.text = ConvertKeyCode(DOWN[0]);
+        _downBtn2.text = ConvertKeyCode(DOWN[1]);
+        _attackBtn1.text = ConvertKeyCode(ATTACK[0]);
+        _attackBtn2.text = ConvertKeyCode(ATTACK[1]);
     }
     
     private void Awake()
@@ -205,29 +240,24 @@ public class KeySetting : MonoBehaviour
             {
                 case KeyType.UP1:
                     UP = new KeyCode[] { t, UP[1] };
-                    _upBtn1.text = $"{t}";
                     break;
                 case KeyType.UP2:
                     UP = new KeyCode[] { UP[0], t };
-                    _upBtn2.text = $"{t}";
                     break;
                 case KeyType.DOWN1:
                     DOWN = new KeyCode[] { t, DOWN[1] };
-                    _downBtn1.text = $"{t}";
                     break;
                 case KeyType.DOWN2:
                     DOWN = new KeyCode[] { DOWN[0], t };
-                    _downBtn2.text = $"{t}";
                     break;
                 case KeyType.ATTACK1:
                     ATTACK = new KeyCode[] { t, ATTACK[1] };
-                    _attackBtn1.text = $"{t}";
                     break;
                 case KeyType.ATTACK2:
                     ATTACK = new KeyCode[] { ATTACK[0], t };
-                    _attackBtn2.text = $"{t}";
                     break;
             }
+            UpdateSettings();
             eUnityEvent?.Invoke();
             break;
         }
