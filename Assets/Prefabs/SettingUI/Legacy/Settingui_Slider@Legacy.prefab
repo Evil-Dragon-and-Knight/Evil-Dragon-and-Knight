@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4915990825750877061}
   - component: {fileID: 4915990825750877058}
   m_Layer: 0
-  m_Name: SettingSlider
+  m_Name: Settingui_Slider@Legacy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
