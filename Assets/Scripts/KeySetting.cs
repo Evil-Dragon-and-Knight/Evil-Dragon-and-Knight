@@ -50,6 +50,8 @@ public class KeySetting : MonoBehaviour
 
     private readonly KeyCode[] _keyList = new KeyCode[]
     {
+        #region Alphabet
+
         KeyCode.A,
         KeyCode.B,
         KeyCode.C,
@@ -75,7 +77,50 @@ public class KeySetting : MonoBehaviour
         KeyCode.W,
         KeyCode.X,
         KeyCode.Y,
-        KeyCode.Z
+        KeyCode.Z,
+
+        #endregion
+
+        #region Numpad
+        
+        KeyCode.Alpha0,
+        KeyCode.Alpha1,
+        KeyCode.Alpha2,
+        KeyCode.Alpha3,
+        KeyCode.Alpha4,
+        KeyCode.Alpha5,
+        KeyCode.Alpha6,
+        KeyCode.Alpha7,
+        KeyCode.Alpha8,
+        KeyCode.Alpha9,
+
+        #endregion
+
+        #region Arrow
+
+        KeyCode.UpArrow,
+        KeyCode.DownArrow,
+        KeyCode.LeftArrow,
+        KeyCode.RightArrow,
+
+        #endregion
+
+        #region Etc
+
+        KeyCode.BackQuote,
+        KeyCode.Minus,
+        KeyCode.Equals,
+        KeyCode.LeftShift,
+        KeyCode.RightShift,
+        KeyCode.Space,
+        KeyCode.CapsLock,
+        KeyCode.Tab,
+        KeyCode.LeftControl,
+        KeyCode.RightControl,
+        KeyCode.LeftAlt,
+        KeyCode.RightAlt
+
+        #endregion
     };
 
     #endregion
@@ -131,14 +176,113 @@ public class KeySetting : MonoBehaviour
 #endif
     }
 
+    private string ConvertKeyCode(KeyCode keyCode)
+    {
+        string cKeyCode;
+        switch (keyCode)
+        {
+            #region Numpad
+
+            case KeyCode.Alpha0:
+                cKeyCode = "0";
+                break;
+            case KeyCode.Alpha1:
+                cKeyCode = "1";
+                break;
+            case KeyCode.Alpha2:
+                cKeyCode = "2";
+                break;
+            case KeyCode.Alpha3:
+                cKeyCode = "3";
+                break;
+            case KeyCode.Alpha4:
+                cKeyCode = "4";
+                break;
+            case KeyCode.Alpha5:
+                cKeyCode = "5";
+                break;
+            case KeyCode.Alpha6:
+                cKeyCode = "6";
+                break;
+            case KeyCode.Alpha7:
+                cKeyCode = "7";
+                break;
+            case KeyCode.Alpha8:
+                cKeyCode = "8";
+                break;
+            case KeyCode.Alpha9:
+                cKeyCode = "9";
+                break;
+
+            #endregion
+
+            #region Arrow
+
+            case KeyCode.UpArrow:
+                cKeyCode = "↑";
+                break;
+            case KeyCode.DownArrow:
+                cKeyCode = "↓";
+                break;
+            case KeyCode.LeftArrow:
+                cKeyCode = "←";
+                break;
+            case KeyCode.RightArrow:
+                cKeyCode = "→";
+                break;
+
+            #endregion
+
+            #region Etc
+
+            case KeyCode.BackQuote:
+                cKeyCode = "~";
+                break;
+            case KeyCode.Minus:
+                cKeyCode = "-";
+                break;
+            case KeyCode.Equals:
+                cKeyCode = "=";
+                break;
+            case KeyCode.LeftShift:
+                cKeyCode = "LShift";
+                break;
+            case KeyCode.RightShift:
+                cKeyCode = "RShift";
+                break;
+            case KeyCode.CapsLock:
+                cKeyCode = "Caps";
+                break;
+            case KeyCode.LeftControl:
+                cKeyCode = "LCtrl";
+                break;
+            case KeyCode.RightControl:
+                cKeyCode = "RCtrl";
+                break;
+            case KeyCode.LeftAlt:
+                cKeyCode = "LAlt";
+                break;
+            case KeyCode.RightAlt:
+                cKeyCode = "RAlt";
+                break;
+
+            #endregion
+            
+            default:
+                cKeyCode = $"{keyCode}";
+                break;
+        }
+        return cKeyCode;
+    }
+    
     public void UpdateSettings()
     {
-        _upBtn1.text = $"{UP[0]}";
-        _upBtn2.text = $"{UP[1]}";
-        _downBtn1.text = $"{DOWN[0]}";
-        _downBtn2.text = $"{DOWN[1]}";
-        _attackBtn1.text = $"{ATTACK[0]}";
-        _attackBtn2.text = $"{ATTACK[1]}";
+        _upBtn1.text = ConvertKeyCode(UP[0]);
+        _upBtn2.text = ConvertKeyCode(UP[1]);
+        _downBtn1.text = ConvertKeyCode(DOWN[0]);
+        _downBtn2.text = ConvertKeyCode(DOWN[1]);
+        _attackBtn1.text = ConvertKeyCode(ATTACK[0]);
+        _attackBtn2.text = ConvertKeyCode(ATTACK[1]);
     }
     
     private void Awake()
@@ -205,29 +349,24 @@ public class KeySetting : MonoBehaviour
             {
                 case KeyType.UP1:
                     UP = new KeyCode[] { t, UP[1] };
-                    _upBtn1.text = $"{t}";
                     break;
                 case KeyType.UP2:
                     UP = new KeyCode[] { UP[0], t };
-                    _upBtn2.text = $"{t}";
                     break;
                 case KeyType.DOWN1:
                     DOWN = new KeyCode[] { t, DOWN[1] };
-                    _downBtn1.text = $"{t}";
                     break;
                 case KeyType.DOWN2:
                     DOWN = new KeyCode[] { DOWN[0], t };
-                    _downBtn2.text = $"{t}";
                     break;
                 case KeyType.ATTACK1:
                     ATTACK = new KeyCode[] { t, ATTACK[1] };
-                    _attackBtn1.text = $"{t}";
                     break;
                 case KeyType.ATTACK2:
                     ATTACK = new KeyCode[] { ATTACK[0], t };
-                    _attackBtn2.text = $"{t}";
                     break;
             }
+            UpdateSettings();
             eUnityEvent?.Invoke();
             break;
         }
