@@ -50,6 +50,8 @@ public class KeySetting : MonoBehaviour
 
     private readonly KeyCode[] _keyList = new KeyCode[]
     {
+        #region Alphabet
+
         KeyCode.A,
         KeyCode.B,
         KeyCode.C,
@@ -76,13 +78,49 @@ public class KeySetting : MonoBehaviour
         KeyCode.X,
         KeyCode.Y,
         KeyCode.Z,
+
+        #endregion
+
+        #region Numpad
+        
+        KeyCode.Alpha0,
+        KeyCode.Alpha1,
+        KeyCode.Alpha2,
+        KeyCode.Alpha3,
+        KeyCode.Alpha4,
+        KeyCode.Alpha5,
+        KeyCode.Alpha6,
+        KeyCode.Alpha7,
+        KeyCode.Alpha8,
+        KeyCode.Alpha9,
+
+        #endregion
+
+        #region Arrow
+
         KeyCode.UpArrow,
         KeyCode.DownArrow,
         KeyCode.LeftArrow,
         KeyCode.RightArrow,
+
+        #endregion
+
+        #region Etc
+
+        KeyCode.BackQuote,
+        KeyCode.Minus,
+        KeyCode.Equals,
         KeyCode.LeftShift,
         KeyCode.RightShift,
-        KeyCode.Space
+        KeyCode.Space,
+        KeyCode.CapsLock,
+        KeyCode.Tab,
+        KeyCode.LeftControl,
+        KeyCode.RightControl,
+        KeyCode.LeftAlt,
+        KeyCode.RightAlt
+
+        #endregion
     };
 
     #endregion
@@ -143,10 +181,43 @@ public class KeySetting : MonoBehaviour
         string cKeyCode;
         switch (keyCode)
         {
-            case KeyCode.LeftShift:
-            case KeyCode.RightShift:
-                cKeyCode = "Shift";
+            #region Numpad
+
+            case KeyCode.Alpha0:
+                cKeyCode = "0";
                 break;
+            case KeyCode.Alpha1:
+                cKeyCode = "1";
+                break;
+            case KeyCode.Alpha2:
+                cKeyCode = "2";
+                break;
+            case KeyCode.Alpha3:
+                cKeyCode = "3";
+                break;
+            case KeyCode.Alpha4:
+                cKeyCode = "4";
+                break;
+            case KeyCode.Alpha5:
+                cKeyCode = "5";
+                break;
+            case KeyCode.Alpha6:
+                cKeyCode = "6";
+                break;
+            case KeyCode.Alpha7:
+                cKeyCode = "7";
+                break;
+            case KeyCode.Alpha8:
+                cKeyCode = "8";
+                break;
+            case KeyCode.Alpha9:
+                cKeyCode = "9";
+                break;
+
+            #endregion
+
+            #region Arrow
+
             case KeyCode.UpArrow:
                 cKeyCode = "↑";
                 break;
@@ -159,6 +230,44 @@ public class KeySetting : MonoBehaviour
             case KeyCode.RightArrow:
                 cKeyCode = "→";
                 break;
+
+            #endregion
+
+            #region Etc
+
+            case KeyCode.BackQuote:
+                cKeyCode = "~";
+                break;
+            case KeyCode.Minus:
+                cKeyCode = "-";
+                break;
+            case KeyCode.Equals:
+                cKeyCode = "=";
+                break;
+            case KeyCode.LeftShift:
+                cKeyCode = "LShift";
+                break;
+            case KeyCode.RightShift:
+                cKeyCode = "RShift";
+                break;
+            case KeyCode.CapsLock:
+                cKeyCode = "Caps";
+                break;
+            case KeyCode.LeftControl:
+                cKeyCode = "LCtrl";
+                break;
+            case KeyCode.RightControl:
+                cKeyCode = "RCtrl";
+                break;
+            case KeyCode.LeftAlt:
+                cKeyCode = "LAlt";
+                break;
+            case KeyCode.RightAlt:
+                cKeyCode = "RAlt";
+                break;
+
+            #endregion
+            
             default:
                 cKeyCode = $"{keyCode}";
                 break;
