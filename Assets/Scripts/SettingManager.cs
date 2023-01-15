@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingManager : MonoBehaviour
+public class SettingManager : Singleton<SettingManager>
 {
     #region KeyCode
 
-    public static KeyCode[] Key_UP
+    public KeyCode[] Key_UP
     {
         get => new KeyCode[]
         {
@@ -21,7 +21,7 @@ public class SettingManager : MonoBehaviour
         }
     }
     
-    public static KeyCode[] Key_DOWN
+    public KeyCode[] Key_DOWN
     {
         get => new KeyCode[]
         {
@@ -35,7 +35,7 @@ public class SettingManager : MonoBehaviour
         }
     }
     
-    public static KeyCode[] Key_ATTACK
+    public KeyCode[] Key_ATTACK
     {
         get => new KeyCode[]
         {
@@ -53,7 +53,7 @@ public class SettingManager : MonoBehaviour
 
     #region MyRegion
 
-    public static bool Toggle_SKIP
+    public bool Toggle_SKIP
     {
         get => PlayerPrefs.GetInt("Toggle@SKIP", 0) != 0;
         set => PlayerPrefs.SetInt("Toggle@SKIP", value ? 1 : 0);
