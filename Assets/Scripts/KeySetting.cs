@@ -127,14 +127,14 @@ public class KeySetting : MonoBehaviour
     
     #region KeySettings
 
-    private static KeyCode _up1 = KeyCode.W;
-    private static KeyCode _up2 = KeyCode.UpArrow;
+    private static KeyCode _up1;
+    private static KeyCode _up2;
     
-    private static KeyCode _down1 = KeyCode.S;
-    private static KeyCode _down2 = KeyCode.DownArrow;
+    private static KeyCode _down1;
+    private static KeyCode _down2;
     
-    private static KeyCode _attack1 = KeyCode.LeftShift;
-    private static KeyCode _attack2 = KeyCode.Space;
+    private static KeyCode _attack1;
+    private static KeyCode _attack2;
 
     #endregion
 
@@ -289,6 +289,19 @@ public class KeySetting : MonoBehaviour
     {
         _listeningEvent = false;
 
+        #region Init
+
+        _up1 = SettingManager.Key_UP[0];
+        _up2 = SettingManager.Key_UP[1];
+    
+        _down1 = SettingManager.Key_DOWN[0];
+        _down2 = SettingManager.Key_DOWN[1];
+    
+        _attack1 = SettingManager.Key_ATTACK[0];
+        _attack2 = SettingManager.Key_ATTACK[1];
+
+        #endregion
+
         #region GetComponent
         
         _upBtn1 = upBtn1.GetComponentInChildren<TextMeshProUGUI>();
@@ -349,21 +362,27 @@ public class KeySetting : MonoBehaviour
             {
                 case KeyType.UP1:
                     UP = new KeyCode[] { t, UP[1] };
+                    SettingManager.Key_UP = new KeyCode[] { t, UP[1] };
                     break;
                 case KeyType.UP2:
                     UP = new KeyCode[] { UP[0], t };
+                    SettingManager.Key_UP = new KeyCode[] { UP[0], t };
                     break;
                 case KeyType.DOWN1:
                     DOWN = new KeyCode[] { t, DOWN[1] };
+                    SettingManager.Key_DOWN = new KeyCode[] { t, DOWN[1] };
                     break;
                 case KeyType.DOWN2:
                     DOWN = new KeyCode[] { DOWN[0], t };
+                    SettingManager.Key_DOWN = new KeyCode[] { DOWN[0], t };
                     break;
                 case KeyType.ATTACK1:
                     ATTACK = new KeyCode[] { t, ATTACK[1] };
+                    SettingManager.Key_ATTACK = new KeyCode[] { t, ATTACK[1] };
                     break;
                 case KeyType.ATTACK2:
                     ATTACK = new KeyCode[] { ATTACK[0], t };
+                    SettingManager.Key_ATTACK = new KeyCode[] { ATTACK[0], t };
                     break;
             }
             UpdateSettings();
