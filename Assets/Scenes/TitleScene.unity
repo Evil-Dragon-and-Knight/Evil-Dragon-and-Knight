@@ -3847,6 +3847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bc5f4c34c2e6449a4c6fac2db04f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   width: 1920
   height: 1080
 --- !u!1 &1369113386
@@ -7363,6 +7364,10 @@ PrefabInstance:
       propertyPath: managedReferences[5054470671918170119].TargetFeedbacks
       value: 
       objectReference: {fileID: 472889118}
+    - target: {fileID: 7889879249862943286, guid: cc3f69e7d09ab6844887a7303277a8dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3f69e7d09ab6844887a7303277a8dc, type: 3}
