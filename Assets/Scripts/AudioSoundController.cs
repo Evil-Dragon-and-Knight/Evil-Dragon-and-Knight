@@ -13,8 +13,7 @@ public class AudioSoundController : MonoBehaviour
 
     [Separator("Default Settings")] 
     [SerializeField] private MMSoundManager mmSoundManager;
-    
-    
+
     [Separator("Track Settings")]
     [SerializeField] private float constMaxVolume = 1f;
 
