@@ -12,7 +12,7 @@ public class ToggleSetting : MonoBehaviour
     {
         if (_toggle == null) return;
 
-        SettingManager.Toggle_SKIP = _toggle.isOn;
+        SettingManager.Instance.Toggle_SKIP = _toggle.isOn;
     }
     
     private void Awake()
@@ -21,7 +21,7 @@ public class ToggleSetting : MonoBehaviour
 
         #region Init
         
-        _toggle.isOn = SettingManager.Toggle_SKIP;
+        _toggle.isOn = SettingManager.Instance.Toggle_SKIP;
 
         #endregion
     }
