@@ -110,6 +110,18 @@ public class KeySetting : MonoBehaviour
         KeyCode.BackQuote,
         KeyCode.Minus,
         KeyCode.Equals,
+        KeyCode.LeftBracket,
+        KeyCode.RightBracket,
+        KeyCode.Semicolon,
+        KeyCode.Quote,
+        KeyCode.Comma,
+        KeyCode.Period,
+        KeyCode.Slash,
+
+        #endregion
+
+        #region Special
+
         KeyCode.LeftShift,
         KeyCode.RightShift,
         KeyCode.Space,
@@ -121,6 +133,7 @@ public class KeySetting : MonoBehaviour
         KeyCode.RightAlt
 
         #endregion
+        
     };
 
     #endregion
@@ -244,6 +257,32 @@ public class KeySetting : MonoBehaviour
             case KeyCode.Equals:
                 cKeyCode = "=";
                 break;
+            case KeyCode.LeftBracket:
+                cKeyCode = "[";
+                break;
+            case KeyCode.RightBracket:
+                cKeyCode = "]";
+                break;
+            case KeyCode.Semicolon:
+                cKeyCode = ";";
+                break;
+            case KeyCode.Quote:
+                cKeyCode = "'";
+                break;
+            case KeyCode.Comma:
+                cKeyCode = "<";
+                break;
+            case KeyCode.Period:
+                cKeyCode = ">";
+                break;
+            case KeyCode.Slash:
+                cKeyCode = "/";
+                break;
+            
+            #endregion
+
+            #region Special
+
             case KeyCode.LeftShift:
                 cKeyCode = "LShift";
                 break;
@@ -291,14 +330,14 @@ public class KeySetting : MonoBehaviour
 
         #region Init
 
-        _up1 = SettingManager.Key_UP[0];
-        _up2 = SettingManager.Key_UP[1];
+        _up1 = SettingManager.Instance.Key_UP[0];
+        _up2 = SettingManager.Instance.Key_UP[1];
     
-        _down1 = SettingManager.Key_DOWN[0];
-        _down2 = SettingManager.Key_DOWN[1];
+        _down1 = SettingManager.Instance.Key_DOWN[0];
+        _down2 = SettingManager.Instance.Key_DOWN[1];
     
-        _attack1 = SettingManager.Key_ATTACK[0];
-        _attack2 = SettingManager.Key_ATTACK[1];
+        _attack1 = SettingManager.Instance.Key_ATTACK[0];
+        _attack2 = SettingManager.Instance.Key_ATTACK[1];
 
         #endregion
 
@@ -357,34 +396,74 @@ public class KeySetting : MonoBehaviour
         foreach (KeyCode t in _keyList)
         {
             if (Input.GetKey(t) == false) continue;
-            _listeningEvent = false;
             switch (_currentListeningButton)
             {
                 case KeyType.UP1:
+                    if (Array.IndexOf(_keyList, t) <= Array.IndexOf(_keyList, KeyCode.Slash) == false) continue;
+                    if (t == UP[1])
+                    {
+                        UP = new KeyCode[] { t, UP[0] };
+                        SettingManager.Instance.Key_UP = UP;
+                        break;
+                    }
                     UP = new KeyCode[] { t, UP[1] };
-                    SettingManager.Key_UP = new KeyCode[] { t, UP[1] };
+                    SettingManager.Instance.Key_UP = UP;
                     break;
                 case KeyType.UP2:
+                    if (Array.IndexOf(_keyList, t) <= Array.IndexOf(_keyList, KeyCode.Slash) == false) continue;
+                    if (t == UP[0])
+                    {
+                        UP = new KeyCode[] { UP[1], t };
+                        SettingManager.Instance.Key_UP = UP;
+                        break;
+                    }
                     UP = new KeyCode[] { UP[0], t };
-                    SettingManager.Key_UP = new KeyCode[] { UP[0], t };
+                    SettingManager.Instance.Key_UP = UP;
                     break;
                 case KeyType.DOWN1:
+                    if (Array.IndexOf(_keyList, t) <= Array.IndexOf(_keyList, KeyCode.Slash) == false) continue;
+                    if (t == DOWN[1])
+                    {
+                        DOWN = new KeyCode[] { t, DOWN[0] };
+                        SettingManager.Instance.Key_DOWN = DOWN;
+                        break;
+                    }
                     DOWN = new KeyCode[] { t, DOWN[1] };
-                    SettingManager.Key_DOWN = new KeyCode[] { t, DOWN[1] };
+                    SettingManager.Instance.Key_DOWN = DOWN;
                     break;
                 case KeyType.DOWN2:
+                    if (Array.IndexOf(_keyList, t) <= Array.IndexOf(_keyList, KeyCode.Slash) == false) continue;
+                    if (t == DOWN[0])
+                    {
+                        DOWN = new KeyCode[] { DOWN[1], t };
+                        SettingManager.Instance.Key_DOWN = DOWN;
+                        break;
+                    }
                     DOWN = new KeyCode[] { DOWN[0], t };
-                    SettingManager.Key_DOWN = new KeyCode[] { DOWN[0], t };
+                    SettingManager.Instance.Key_DOWN = DOWN;
                     break;
                 case KeyType.ATTACK1:
+                    if (t == ATTACK[1])
+                    {
+                        ATTACK = new KeyCode[] { t, ATTACK[0] };
+                        SettingManager.Instance.Key_ATTACK = ATTACK;
+                        break;
+                    }
                     ATTACK = new KeyCode[] { t, ATTACK[1] };
-                    SettingManager.Key_ATTACK = new KeyCode[] { t, ATTACK[1] };
+                    SettingManager.Instance.Key_ATTACK = ATTACK;
                     break;
                 case KeyType.ATTACK2:
+                    if (t == ATTACK[0])
+                    {
+                        ATTACK = new KeyCode[] { ATTACK[1], t };
+                        SettingManager.Instance.Key_ATTACK = ATTACK;
+                        break;
+                    }
                     ATTACK = new KeyCode[] { ATTACK[0], t };
-                    SettingManager.Key_ATTACK = new KeyCode[] { ATTACK[0], t };
+                    SettingManager.Instance.Key_ATTACK = ATTACK;
                     break;
             }
+            _listeningEvent = false;
             UpdateSettings();
             eUnityEvent?.Invoke();
             break;

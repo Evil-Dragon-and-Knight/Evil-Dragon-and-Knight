@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraResolution : MonoBehaviour
 {
+    [SerializeField] private bool active = true;
+
     [Header("Resolution")]
     [SerializeField] private int width = 1920;
     [SerializeField] private int height = 1080;
@@ -12,6 +14,7 @@ public class CameraResolution : MonoBehaviour
     
     private void Awake()
     {
+        if (active == false) return;
         _camera = GetComponent<Camera>();
         if (_camera == null) return;
         Rect rect = _camera.rect;
