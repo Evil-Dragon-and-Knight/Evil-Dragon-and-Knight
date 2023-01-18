@@ -1868,7 +1868,7 @@ MonoBehaviour:
         DebugActive: 0
         Players:
         - TargetPlayer: {fileID: 9025384613076606663}
-          Delay: {x: 0, y: 0.8}
+          Delay: {x: 0, y: 0.7}
           Inactive: 0
         - TargetPlayer: {fileID: 9025384613478603714}
           Delay: {x: 0, y: 0}
