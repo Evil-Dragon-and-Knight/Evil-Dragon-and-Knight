@@ -11549,6 +11549,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5816107168285479645, guid: 6837aac7314c1f545a5a351b6b70c2ad, type: 3}
+      propertyPath: managedReferences[5054470742362816536].Players.Array.data[0].Delay.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816107170041923028, guid: 6837aac7314c1f545a5a351b6b70c2ad, type: 3}
+      propertyPath: managedReferences[5054470742362816536].Players.Array.data[0].Delay.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7475956197074418828, guid: 6837aac7314c1f545a5a351b6b70c2ad, type: 3}
       propertyPath: m_Name
       value: Enemy@BossDragon
