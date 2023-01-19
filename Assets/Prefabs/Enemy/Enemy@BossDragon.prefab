@@ -1321,7 +1321,7 @@ MonoBehaviour:
         DebugActive: 0
         Players:
         - TargetPlayer: {fileID: 781757988}
-          Delay: {x: 0.5, y: 0}
+          Delay: {x: 0.8, y: 0}
           Inactive: 0
 --- !u!1 &5816107170041923030
 GameObject:
