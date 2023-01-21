@@ -23,9 +23,13 @@ public class Enemy : MonoBehaviour
 
     #region Feedbacks
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public virtual void Init()
     {
+        // Off On for Reset Feedbacks
+        gameObject.SetActive(false);
         gameObject.SetActive(true);
+
         initFeedback.PlayFeedbacks();
     }
     
@@ -57,7 +61,7 @@ public class Enemy : MonoBehaviour
 
     #region Event
 
-    private void Start()
+    private void Awake()
     {
         _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
     }

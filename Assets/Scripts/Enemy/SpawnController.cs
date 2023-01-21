@@ -7,10 +7,8 @@ using Random = UnityEngine.Random;
 
 public class SpawnController : MonoBehaviour
 {
-    [Separator("Enemy Prefab Settings")] 
-    [SerializeField] private GameObject dragonPrefab;
-    [SerializeField] private GameObject foxPrefab;
-    [SerializeField] private GameObject bossDragonPrefab;
+    [Separator("Object Pooing Settings")] [SerializeField]
+    private ObjectPooling objectPollingController;
     
     [Separator("Enemy Spawn Point Settings")] 
     [SerializeField] private Transform dragonSpawnPoint1;
@@ -40,17 +38,20 @@ public class SpawnController : MonoBehaviour
         switch (randomRange)
         {
             case 0:
-                temp = Instantiate(dragonPrefab);
+                temp = objectPollingController.GetObject("Enemy@Dragon");
+                // temp = Instantiate(dragonPrefab);
                 temp.transform.position = dragonSpawnPoint1.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;
             case 1:
-                temp = Instantiate(dragonPrefab);
+                temp = objectPollingController.GetObject("Enemy@Dragon");
+                // temp = Instantiate(dragonPrefab);
                 temp.transform.position = dragonSpawnPoint2.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;
             case 2:
-                temp = Instantiate(foxPrefab);
+                temp = objectPollingController.GetObject("Enemy@Fox");
+                // temp = Instantiate(foxPrefab);
                 temp.transform.position = foxSpawnPoint.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;

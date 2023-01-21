@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   prefab: {fileID: 3373812169471593489, guid: 8f5cdd974b136b246b1a05648cce2fcb, type: 3}
-  dynamicAppending: 1
+  name: Enemy@Fireball
+  canExtendSelf: 1
   initializeCount: 10

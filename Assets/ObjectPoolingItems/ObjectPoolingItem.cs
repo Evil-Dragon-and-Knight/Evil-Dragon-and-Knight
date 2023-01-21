@@ -10,7 +10,7 @@ public class ObjectPoolingItem : ScriptableObject
     [Separator("Settings")] 
     [MustBeAssigned] public GameObject prefab;
     [RegexString("[a-zA-Z0-9]+", RegexStringMode.WarningIfNotMatch)] [ConditionalField(nameof(active), false)] 
-    [MustBeAssigned] public string name;
+    [MustBeAssigned] public new string name;
 #if UNITY_EDITOR
     [ButtonMethod]
     private void NamingAuto()
