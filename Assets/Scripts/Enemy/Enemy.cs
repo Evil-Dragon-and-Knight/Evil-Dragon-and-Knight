@@ -35,11 +35,13 @@ public class Enemy : MonoBehaviour
     
     public virtual void Attack()
     {
+        _walkTriggerOffAbsolute = true;
         attackFeedback.PlayFeedbacks();
     }
     
     public virtual void Die()
     {
+        _walkTriggerOffAbsolute = true;
         dieFeedback.PlayFeedbacks();
     }
 
@@ -76,7 +78,6 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.gameObject.CompareTag("Player")) return;
-        _walkTriggerOffAbsolute = true;
         Attack();
     }
     
