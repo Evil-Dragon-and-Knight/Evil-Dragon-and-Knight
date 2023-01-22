@@ -15,17 +15,17 @@ public class Dialog : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogName;
     [SerializeField] private TextMeshProUGUI dialogText;
 
-    public bool typeDone = false;
+    [HideInInspector] public bool typeDone = false;
     
-    private new string _name;
-    private new string _text;
+    private string _name;
+    private string _text;
     
     public void Show(string name, string text)
     {
-        model.SetActive(true);
-        typeDone = false;
         _name = name;
         _text = text;
+        typeDone = false;
+        model.SetActive(true);
         SetName();
         StopAllCoroutines();
         StartCoroutine(TypeSentence());
@@ -34,8 +34,8 @@ public class Dialog : MonoBehaviour
     public void Hide()
     {
         typeDone = false;
-        model.SetActive(false);
         StopAllCoroutines();
+        model.SetActive(false);
     }
 
     public void SetName()
@@ -46,8 +46,8 @@ public class Dialog : MonoBehaviour
     public void TypeInstant()
     {
         StopAllCoroutines();
-        dialogText.text = _text;
         typeDone = true;
+        dialogText.text = _text;
     }
     
     IEnumerator TypeSentence()
