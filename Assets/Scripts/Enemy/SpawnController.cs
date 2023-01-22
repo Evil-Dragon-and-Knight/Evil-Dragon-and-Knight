@@ -43,16 +43,16 @@ public class SpawnController : MonoBehaviour
         _spawnEnable = false;
     }
 
-    public void KillEverySpawnObject()
+    public void KillEverySpawnObject(string tag)
     {
-        objectPollingController.KillEveryActiveObject("Enemy");
+        objectPollingController.KillEveryActiveObject(tag);
     }
 
-    
     public void InactiveBoss()
     {
         objectPollingController.InactiveEveryActiveObject("Boss");
     }
+    
     public void SpawnBoss()
     {
         GameObject temp = objectPollingController.GetObject("Enemy@BossDragon");

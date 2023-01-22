@@ -2575,13 +2575,13 @@ MonoBehaviour:
       - m_Target: {fileID: 294969669}
         m_TargetAssemblyTypeName: SpawnController, Assembly-CSharp
         m_MethodName: KillEverySpawnObject
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Enemy
           m_BoolArgument: 0
         m_CallState: 2
   exitEvents:
@@ -11022,7 +11022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4ebdedc958d3544a7837bfe0bd3049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typingSpeed: 0.015
+  typingSpeed: 0.029999999329447746
   model: {fileID: 238592175}
   dialogName: {fileID: 1156729593}
   dialogText: {fileID: 1038077612}
@@ -13097,13 +13097,13 @@ MonoBehaviour:
       - m_Target: {fileID: 294969669}
         m_TargetAssemblyTypeName: SpawnController, Assembly-CSharp
         m_MethodName: KillEverySpawnObject
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Enemy
           m_BoolArgument: 0
         m_CallState: 2
   exitEvents:
@@ -15217,28 +15217,16 @@ MonoBehaviour:
   exitEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720592004}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
-        m_MethodName: PlayFeedbacks
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 294969669}
         m_TargetAssemblyTypeName: SpawnController, Assembly-CSharp
-        m_MethodName: InactiveBoss
-        m_Mode: 1
+        m_MethodName: KillEverySpawnObject
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Boss
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1881603834
@@ -15876,7 +15864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4ebdedc958d3544a7837bfe0bd3049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typingSpeed: 0.014999999664723873
+  typingSpeed: 0.029999999329447746
   model: {fileID: 1327690853}
   dialogName: {fileID: 2088793947}
   dialogText: {fileID: 267032434}
