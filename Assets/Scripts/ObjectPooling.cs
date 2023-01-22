@@ -39,6 +39,24 @@ struct ObjStruct
         return temp;
     }
     
+    public void InactiveObject()
+    {
+        foreach (var obj in _list)
+        {
+            if (!obj.activeSelf) continue;
+            obj.SetActive(false);
+        }
+    }
+
+    public void KillObject()
+    {
+        foreach (var obj in _list)
+        {
+            if (!obj.activeSelf) continue;
+            obj.GetComponent<Enemy>().Die();
+        }
+    }
+    
     public void Update()
     {
         if (_objCanUse == _initializeCount) return;
@@ -102,6 +120,24 @@ public class ObjectPooling : MonoBehaviour
             }
         }
         return temp;
+    }
+    
+    public void InactiveEveryActiveObject(string tag)
+    {
+        foreach (var obj in _settings)
+        {
+            if (!obj.prefab.CompareTag(tag)) continue;
+            _objectList[obj.name].InactiveObject();
+        }
+    }
+    
+    public void KillEveryActiveObject(string tag)
+    {
+        foreach (var obj in _settings)
+        {
+            if (!obj.prefab.CompareTag(tag)) continue;
+            _objectList[obj.name].KillObject();
+        }
     }
 
     private void Update()

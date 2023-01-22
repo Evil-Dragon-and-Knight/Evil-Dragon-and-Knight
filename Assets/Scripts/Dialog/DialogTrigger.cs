@@ -8,8 +8,11 @@ using UnityEngine.Events;
 public class DialogTrigger : MonoBehaviour
 {
     [Separator("Default Settings")] 
-    [SerializeField] protected UnityEvent initEvents;
     [SerializeField] private DialogManager targetManager;
+    
+    [Separator("Delay Settings")] 
+    [PositiveValueOnly] [SerializeField] private float before = 0f;
+    [PositiveValueOnly] [SerializeField] private float after = 0f;
 
     [Separator("Dialog Settings")] 
     [DefinedValues("Custom", "Player", "Enemy")] [SerializeField]
@@ -19,28 +22,45 @@ public class DialogTrigger : MonoBehaviour
     private Dialog customDialog;
     
     [SerializeField] private new string name;
+    
     [TextArea(4, 4)] [SerializeField] 
     private string text;
     
-    [Separator("Etc Settings")] 
+    [Separator("Etc Settings")]
+    [SerializeField] protected UnityEvent initEvents;
     [SerializeField] protected UnityEvent exitEvents;
+
+    private bool actionDone = true;
 
     public void Play()
     {
         initEvents.Invoke();
-        customDialog.Show(name, text);
+        actionDone = true;
+        Invoke(nameof(Before), before);
     }
 
     private void Exit()
     {
+        actionDone = true;
         customDialog.Hide();
         exitEvents.Invoke();
-        targetManager.PlayNextScene();
-        gameObject.SetActive(false);
+        Invoke(nameof(After), after);
     }
 
-    private void CheckInput()
+    private void Before()
     {
+        actionDone = false;
+        customDialog.Show(name, text);
+    }
+
+    private void After()
+    {
+        targetManager.PlayNextScene();
+    }
+
+    public void CheckInput()
+    {
+        if (actionDone) return;
         if (!Input.GetKeyDown(KeyCode.Space)) return;
         switch (customDialog.typeDone)
         {
@@ -65,10 +85,5 @@ public class DialogTrigger : MonoBehaviour
                 customDialog = targetManager.enemyDialog;
                 break;
         }
-    }
-
-    private void Update()
-    {
-        CheckInput();
     }
 }

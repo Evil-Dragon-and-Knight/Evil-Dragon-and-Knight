@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     private float speed = 0f;
     private bool _walkTrigger = false;
     private bool _walkTriggerOffAbsolute = false;
-    private Rigidbody2D _rigidbody2D;
+    protected Rigidbody2D _rigidbody2D;
 
     #region Feedbacks
 
@@ -35,11 +35,13 @@ public class Enemy : MonoBehaviour
     
     public virtual void Attack()
     {
+        _walkTriggerOffAbsolute = true;
         attackFeedback.PlayFeedbacks();
     }
     
     public virtual void Die()
     {
+        _walkTriggerOffAbsolute = true;
         dieFeedback.PlayFeedbacks();
     }
 
@@ -68,7 +70,7 @@ public class Enemy : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (active == false || _walkTrigger == false || _walkTriggerOffAbsolute == true) return;
+        if (active == false || _walkTrigger == false || _walkTriggerOffAbsolute) return;
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(-speed, 0f) * Time.fixedDeltaTime);
         // transform.Translate(new Vector3(-1, 0, 0) * (speed * Time.deltaTime));
     }
@@ -76,7 +78,6 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.gameObject.CompareTag("Player")) return;
-        _walkTriggerOffAbsolute = true;
         Attack();
     }
     

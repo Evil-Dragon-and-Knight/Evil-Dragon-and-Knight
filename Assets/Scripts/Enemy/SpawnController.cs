@@ -22,6 +22,7 @@ public class SpawnController : MonoBehaviour
     [Separator("Boss Spawn Point Settings")] 
     [SerializeField] private Transform bossDragonSpawnPoint;
 
+    private bool _spawnEnable = false;
     private float _nextFrequency;
     private float _currentFrequency;
 
@@ -29,6 +30,34 @@ public class SpawnController : MonoBehaviour
     {
         _currentFrequency = 0f;
         _nextFrequency = Random.Range(spawnFrequency.Min, spawnFrequency.Max);
+    }
+
+    public void SpawnEnable()
+    {
+        GetNewFrequency();
+        _spawnEnable = true;
+    }
+    
+    public void SpawnDisable()
+    {
+        _spawnEnable = false;
+    }
+
+    public void KillEverySpawnObject()
+    {
+        objectPollingController.KillEveryActiveObject("Enemy");
+    }
+
+    
+    public void InactiveBoss()
+    {
+        objectPollingController.InactiveEveryActiveObject("Boss");
+    }
+    public void SpawnBoss()
+    {
+        GameObject temp = objectPollingController.GetObject("Enemy@BossDragon");
+        temp.transform.position = bossDragonSpawnPoint.transform.position;
+        temp.GetComponent<BossDragon>().Init();
     }
     
     private void SpawnEnemy()
@@ -67,6 +96,11 @@ public class SpawnController : MonoBehaviour
 
     private void Update()
     {
+        if (!_spawnEnable)
+        {
+            _currentFrequency = 0;
+            return;
+        }
         _currentFrequency += Time.deltaTime;
         if (_currentFrequency >= _nextFrequency)
         {
