@@ -15,5 +15,5 @@ MonoBehaviour:
   active: 1
   prefab: {fileID: 7475956197074418828, guid: 6837aac7314c1f545a5a351b6b70c2ad, type: 3}
   name: Enemy@BossDragon
-  canExtendSelf: 0
+  canExtendSelf: 1
   initializeCount: 1
