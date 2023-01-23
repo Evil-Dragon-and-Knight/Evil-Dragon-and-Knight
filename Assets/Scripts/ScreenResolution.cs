@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraResolution : MonoBehaviour
+public class ScreenResolution : MonoBehaviour
 {
     [SerializeField] private bool active = true;
 
@@ -15,6 +15,9 @@ public class CameraResolution : MonoBehaviour
     private void Awake()
     {
         if (active == false) return;
+        
+        Screen.SetResolution (width, height, true);
+        
         _camera = GetComponent<Camera>();
         if (_camera == null) return;
         Rect rect = _camera.rect;
