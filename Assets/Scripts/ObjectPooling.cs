@@ -70,7 +70,7 @@ struct ObjStruct
     }
 }
 
-public class ObjectPooling : MonoBehaviour
+public class ObjectPooling : Singleton<ObjectPooling>
 {
     [DisplayInspector] [SerializeField]
     private List<ObjectPoolingItem> _settings;

@@ -193,7 +193,7 @@ MonoBehaviour:
         DebugActive: 0
         Players:
         - TargetPlayer: {fileID: 9025384614161462526}
-          Delay: {x: 0.3, y: 0}
+          Delay: {x: 0.4, y: 0}
           Inactive: 0
     - rid: 5054470774015656117
       type: {class: MMF_Events, ns: MoreMountains.Feedbacks, asm: MoreMountains.Feedbacks}
@@ -850,7 +850,7 @@ MonoBehaviour:
   attackFeedback: {fileID: 9025384613975884053}
   dieFeedback: {fileID: 5352954038883090843}
   active: 1
-  speed: 1.4
+  speed: 1.2
 --- !u!61 &7190581048508945122
 BoxCollider2D:
   m_ObjectHideFlags: 0
