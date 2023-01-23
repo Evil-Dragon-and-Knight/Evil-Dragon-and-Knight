@@ -75,12 +75,6 @@ public class Enemy : MonoBehaviour
         // transform.Translate(new Vector3(-1, 0, 0) * (speed * Time.deltaTime));
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (!col.gameObject.CompareTag("Player")) return;
-        Attack();
-    }
-    
     private void OnEnable()
     {
         _walkTrigger = false;

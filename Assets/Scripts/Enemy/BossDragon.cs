@@ -7,12 +7,10 @@ using MyBox;
 
 public class BossDragon : Enemy
 {
-    [Separator("Object Pooing Settings")] [SerializeField]
-    private ObjectPooling objectPollingController;
-    
     [Separator("BossDragon Settings")] 
-    [SerializeField] private GameObject fireBall;
-    [SerializeField] private Transform spawnLocation;
+    [SerializeField] private Transform bossSpawnLocation;
+    [SerializeField] private ObjectPoolingItem fireball;
+    [SerializeField] private Transform fireballSpawnLocation;
 
     public override void Init()
     {
@@ -34,14 +32,14 @@ public class BossDragon : Enemy
 
     public void SpawnFireBall()
     {
-        GameObject temp = objectPollingController.GetObject("Enemy@Fireball");
-        temp.transform.position = spawnLocation.transform.position;
+        GameObject temp = ObjectPooling.Instance.GetObject(fireball.name);
+        temp.transform.position = fireballSpawnLocation.transform.position;
         temp.GetComponent<Enemy>().Init();
     }
 
     private void FixedUpdate()
     {
-        if (transform.position.x <= 6)
+        if (transform.position.x <= bossSpawnLocation.position.x)
         {
             // var position = transform.position;
             // position = new Vector3(6, position.y, position.z);

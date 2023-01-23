@@ -7,9 +7,6 @@ using Random = UnityEngine.Random;
 
 public class SpawnController : MonoBehaviour
 {
-    [Separator("Object Pooing Settings")] [SerializeField]
-    private ObjectPooling objectPollingController;
-    
     [Separator("Enemy Spawn Point Settings")] 
     [SerializeField] private Transform dragonSpawnPoint1;
     [SerializeField] private Transform dragonSpawnPoint2;
@@ -43,19 +40,19 @@ public class SpawnController : MonoBehaviour
         _spawnEnable = false;
     }
 
-    public void KillEverySpawnObject()
+    public void KillEverySpawnObject(string tag)
     {
-        objectPollingController.KillEveryActiveObject("Enemy");
+        ObjectPooling.Instance.KillEveryActiveObject(tag);
     }
 
-    
     public void InactiveBoss()
     {
-        objectPollingController.InactiveEveryActiveObject("Boss");
+        ObjectPooling.Instance.InactiveEveryActiveObject("Boss");
     }
+    
     public void SpawnBoss()
     {
-        GameObject temp = objectPollingController.GetObject("Enemy@BossDragon");
+        GameObject temp = ObjectPooling.Instance.GetObject("Enemy@BossDragon");
         temp.transform.position = bossDragonSpawnPoint.transform.position;
         temp.GetComponent<BossDragon>().Init();
     }
@@ -67,19 +64,19 @@ public class SpawnController : MonoBehaviour
         switch (randomRange)
         {
             case 0:
-                temp = objectPollingController.GetObject("Enemy@Dragon");
+                temp = ObjectPooling.Instance.GetObject("Enemy@Dragon");
                 // temp = Instantiate(dragonPrefab);
                 temp.transform.position = dragonSpawnPoint1.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;
             case 1:
-                temp = objectPollingController.GetObject("Enemy@Dragon");
+                temp = ObjectPooling.Instance.GetObject("Enemy@Dragon");
                 // temp = Instantiate(dragonPrefab);
                 temp.transform.position = dragonSpawnPoint2.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;
             case 2:
-                temp = objectPollingController.GetObject("Enemy@Fox");
+                temp = ObjectPooling.Instance.GetObject("Enemy@Fox");
                 // temp = Instantiate(foxPrefab);
                 temp.transform.position = foxSpawnPoint.transform.position;
                 temp.GetComponent<Enemy>().Init();

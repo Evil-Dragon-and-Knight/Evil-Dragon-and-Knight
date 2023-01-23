@@ -9,8 +9,8 @@ public class ObjectPoolingItem : ScriptableObject
     public bool active = true;
     [Separator("Settings")] 
     [MustBeAssigned] public GameObject prefab;
-    [RegexString("[a-zA-Z0-9]+", RegexStringMode.WarningIfNotMatch)] [ConditionalField(nameof(active), false)] 
-    [MustBeAssigned] public new string name;
+    [ConditionalField(nameof(active), false)] [MustBeAssigned] 
+    public new string name;
 #if UNITY_EDITOR
     [ButtonMethod]
     private void NamingAuto()
