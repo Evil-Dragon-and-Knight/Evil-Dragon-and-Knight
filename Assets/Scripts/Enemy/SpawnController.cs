@@ -42,17 +42,17 @@ public class SpawnController : MonoBehaviour
 
     public void KillEverySpawnObject(string tag)
     {
-        ObjectPooling.Instance.KillEveryActiveObject(tag);
+        ObjectPooling.KillEveryActiveObject(tag);
     }
 
     public void InactiveBoss()
     {
-        ObjectPooling.Instance.InactiveEveryActiveObject("Boss");
+        ObjectPooling.InactiveEveryActiveObject("Boss");
     }
     
     public void SpawnBoss()
     {
-        GameObject temp = ObjectPooling.Instance.GetObject("Enemy@BossDragon");
+        GameObject temp = ObjectPooling.GetObject("Enemy@BossDragon");
         temp.transform.position = bossDragonSpawnPoint.transform.position;
         temp.GetComponent<BossDragon>().Init();
     }
@@ -64,19 +64,19 @@ public class SpawnController : MonoBehaviour
         switch (randomRange)
         {
             case 0:
-                temp = ObjectPooling.Instance.GetObject("Enemy@Dragon");
+                temp = ObjectPooling.GetObject("Enemy@Dragon");
                 // temp = Instantiate(dragonPrefab);
                 temp.transform.position = dragonSpawnPoint1.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;
             case 1:
-                temp = ObjectPooling.Instance.GetObject("Enemy@Dragon");
+                temp = ObjectPooling.GetObject("Enemy@Dragon");
                 // temp = Instantiate(dragonPrefab);
                 temp.transform.position = dragonSpawnPoint2.transform.position;
                 temp.GetComponent<Enemy>().Init();
                 break;
             case 2:
-                temp = ObjectPooling.Instance.GetObject("Enemy@Fox");
+                temp = ObjectPooling.GetObject("Enemy@Fox");
                 // temp = Instantiate(foxPrefab);
                 temp.transform.position = foxSpawnPoint.transform.position;
                 temp.GetComponent<Enemy>().Init();
