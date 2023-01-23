@@ -2371,7 +2371,7 @@ Transform:
   m_Children:
   - {fileID: 7475956196563276663}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6613928826820663229
 MonoBehaviour:
@@ -2392,7 +2392,7 @@ MonoBehaviour:
   speed: 0
   bossSpawnLocation: {fileID: 5865922731249219453, guid: f5cb0d55b00b12e48ab104a047d7e2fc, type: 3}
   fireball: {fileID: 11400000, guid: 67a0702c28c83d240825d8547571ef35, type: 2}
-  fireballSpawnLocation: {fileID: 0}
+  fireballSpawnLocation: {fileID: 781757987}
 --- !u!61 &5637519950454538538
 BoxCollider2D:
   m_ObjectHideFlags: 0
