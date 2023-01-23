@@ -91,7 +91,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -422,9 +422,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.4005547, y: 1.4226536, z: 0.06179191}
+    m_Target: {x: 988.67676, y: 479.69244, z: -3.4162674}
     speed: 2
-    m_Value: {x: 4.4361186, y: 1.4722428, z: 0.060073815}
+    m_Value: {x: 988.67676, y: 479.69244, z: -3.4162674}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -474,9 +474,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.6461754
+    m_Target: 660.3243
     speed: 2
-    m_Value: 3.8179846
+    m_Value: 660.3243
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -770,22 +770,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ObjectPoolingItems
+    - Assets/Sprites/Title
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/ObjectPoolingItems
+  - Assets/Sprites/Title
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\reeli\Git\Evil-Dragon-and-Knight
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 32}
-    m_SelectedIDs: 38710000
-    m_LastClickedID: 28984
-    m_ExpandedIDs: 000000002471000026710000287100004471000046710000da580100dc580100de580100e058010000ca9a3bffffff7f
+    m_SelectedIDs: 88620500
+    m_LastClickedID: 352904
+    m_ExpandedIDs: 00000000247100002671000028710000427100004471000046710000da580100dc580100de580100e058010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -813,7 +813,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002471000026710000287100004471000046710000da580100dc580100de580100e058010000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000247100002671000028710000427100004471000046710000da580100dc580100de580100e058010000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -838,9 +838,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 0a610500
+    m_LastClickedInstanceID: 352522
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300000000000016d0000004f40000b4680000127a00003c7a00003e6e0000967a00003c990000489900009ae90100b2e90100b0e90100801d01007e1d0100186b000090410100a0410100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -899,7 +899,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 26896
+  m_LastSelectedObjectID: 352854
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 34627
+  controlID: 75115
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -983,9 +983,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: c254fcffcc54fcffd054fcff7a70fcff8470fcff8870fcff2877fcff4277fcff4c77fcffac85fcffb685fcffba85fcff2aa4feff34a4feff38a4feff30bdfeff4abdfeff54bdfeff58bdfeffe6cafeffd218ffff0e1cffff6e55ffff5e5affffd474ffffe2d4ffffe6faffff686600009266000098660000b6660000de6600008067000084670000ba670000b6680000e2680000fe6800001c69000062690000c4690000d4690000de690000066a0000
+      m_SelectedIDs: 0a610500
+      m_LastClickedID: 352522
+      m_ExpandedIDs: 8ac4f6ffe051f7fff27af7ff7eb4f7ffcad5f7ff62e9f7ff4ef9f7ff3afff7ffe613f8ff1a22f9ff4833f9ff0c55f9ff2c55f9ff3a55f9ff24a1f9ff58a1f9fffaaef9ff04aff9ff08aff9fffae5f9ff0cf8f9ff2cf8f9ff3af8f9ffd006faffda06faffde06faff922efaffc42efaff642ffaff802ffaff8c2ffafffaacfaff1aadfaff26adfaffc254fcffcc54fcffd054fcff7a70fcff8470fcff8870fcff2877fcff4277fcff4c77fcffac85fcffb685fcffba85fcff2aa4feff34a4feff38a4feff30bdfeff4abdfeff54bdfeff58bdfeffe6cafeffd218ffff0e1cffffe2d4ffffe6fafffff4ffffff9266000098660000de660000ba670000e2680000fe680000066a00007423040092230400b2240400f224040026250400922604002c6804008a6a0400b26c04006c6d04002e8704002888040090890400168a040054a10400a6a20400e6a2040022a304000ea4040086b10400d4c704005ac9040092cc040030e60400b8e604003ee8040074ea040010610500926105009c610500
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1056,8 +1056,8 @@ MonoBehaviour:
     y: 753
     width: 587
     height: 530
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
