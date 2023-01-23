@@ -22,6 +22,7 @@ public class AttackTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player")) return;
+        if (_player != null) return;
         _player = col.GetComponent<HpController>();
         _enemy.Attack();
     }
