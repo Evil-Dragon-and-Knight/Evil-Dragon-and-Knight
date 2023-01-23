@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform[] locations;
     [SerializeField] private ObjectPoolingItem blade;
+    [SerializeField] private PlayerAttack playerAttack;
 
     private int currentLocation;
     private bool _canControl;
@@ -29,22 +30,35 @@ public class PlayerController : MonoBehaviour
 
     public void Init()
     {
-        // _canControl = false;
         moveCoolDown = 0f;
         currentMoveCoolDown = 0f;
         
         attackCoolDown = 0f;
         currentAttackCoolDown = 0f;
         
-        _canControl = true;
+        _canControl = false;
         currentLocation = locations.Length - 1;
+        transform.position = locations[currentLocation].position;
+        
+        animator.ResetTrigger(Attack);
+        animator.SetBool(Flying, false);
+    }
+
+    public void Enable()
+    {
+        _canControl = true;
     }
 
     public void SpawnBlade()
     {
         GameObject temp = ObjectPooling.GetObject(blade.name);
         temp.transform.position = transform.position;
-        temp.GetComponent<PlayerAttack>().Init();
+        temp.GetComponent<Blade>().Init();
+    }
+
+    public void NormalAttack()
+    {
+        playerAttack.Attack();
     }
     
     private void Update()
@@ -79,6 +93,8 @@ public class PlayerController : MonoBehaviour
 
             currentLocation = newLocation;
             transform.position = locations[currentLocation].position;
+            
+            Invoke(nameof(NormalAttack), 0.25f);
             return;
         }
         
@@ -98,6 +114,8 @@ public class PlayerController : MonoBehaviour
 
             currentLocation = newLocation;
             transform.position = locations[currentLocation].position;
+            
+            Invoke(nameof(NormalAttack), 0.25f);
             return;
         }
     }
@@ -112,7 +130,7 @@ public class PlayerController : MonoBehaviour
         {
             moveCoolDown = 0.25f;
             currentMoveCoolDown = 0f;
-            attackCoolDown = 0f;
+            attackCoolDown = 5f;
             currentAttackCoolDown = 0f;
             
             animator.ResetTrigger(Attack);

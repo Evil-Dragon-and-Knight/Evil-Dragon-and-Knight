@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
-using UnityEngine;
 using MyBox;
-using Unity.VisualScripting;
+using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Blade : MonoBehaviour
 {
     [Separator("Default Settings")] 
     [SerializeField] protected MMF_Player initFeedback;
@@ -41,10 +39,6 @@ public class Enemy : MonoBehaviour
     
     public virtual void Die()
     {
-        if (gameObject.GetComponent<AttackTrigger>()._player != null)
-        {
-            return;
-        }
         _walkTriggerOffAbsolute = true;
         dieFeedback.PlayFeedbacks();
     }
@@ -75,7 +69,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if (active == false || _walkTrigger == false || _walkTriggerOffAbsolute) return;
-        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(-speed, 0f) * Time.fixedDeltaTime);
+        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(speed, 0f) * Time.fixedDeltaTime);
         // transform.Translate(new Vector3(-1, 0, 0) * (speed * Time.deltaTime));
     }
 
@@ -92,5 +86,4 @@ public class Enemy : MonoBehaviour
     }
 
     #endregion
-    
 }

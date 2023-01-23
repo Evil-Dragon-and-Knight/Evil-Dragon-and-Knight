@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour
 {
-    private HpController _player;
+    public HpController _player;
     private Enemy _enemy;
 
     private void Start()
