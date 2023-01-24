@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 using MyBox;
+using Unity.VisualScripting;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,22 +18,31 @@ public class Enemy : MonoBehaviour
     [ConditionalField(nameof(active), false)] [PositiveValueOnly] [SerializeField]
     private float speed = 0f;
     private bool _walkTrigger = false;
+    private bool _walkTriggerOffAbsolute = false;
+    protected Rigidbody2D _rigidbody2D;
 
     #region Feedbacks
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public virtual void Init()
     {
+        // Off On for Reset Feedbacks
+        gameObject.SetActive(false);
         gameObject.SetActive(true);
+
         initFeedback.PlayFeedbacks();
     }
     
     public virtual void Attack()
     {
+        _walkTriggerOffAbsolute = true;
         attackFeedback.PlayFeedbacks();
     }
     
     public virtual void Die()
     {
+        if (gameObject.GetComponent<AttackTrigger>()._player != null) return;
+        _walkTriggerOffAbsolute = true;
         dieFeedback.PlayFeedbacks();
     }
 
@@ -53,15 +64,28 @@ public class Enemy : MonoBehaviour
 
     #region Event
 
-    private void Update()
+    private void Awake()
     {
-        if (active == false || _walkTrigger == false) return;
-        transform.Translate(new Vector3(-1, 0, 0) * (speed * Time.deltaTime));
+        _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
     }
     
+    private void FixedUpdate()
+    {
+        if (active == false || _walkTrigger == false || _walkTriggerOffAbsolute) return;
+        _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(-speed, 0f) * Time.fixedDeltaTime);
+        // transform.Translate(new Vector3(-1, 0, 0) * (speed * Time.deltaTime));
+    }
+
+    private void OnEnable()
+    {
+        _walkTrigger = false;
+        _walkTriggerOffAbsolute = false;
+    }
+
     private void OnDisable()
     {
         _walkTrigger = false;
+        _walkTriggerOffAbsolute = false;
     }
 
     #endregion

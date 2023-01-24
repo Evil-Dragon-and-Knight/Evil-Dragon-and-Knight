@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781757986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 0.8, z: 0}
+  m_LocalPosition: {x: -6, y: 0.8, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
         DebugActive: 0
         Players:
         - TargetPlayer: {fileID: 5816107169266289935}
-          Delay: {x: 0, y: 1.2}
+          Delay: {x: 0, y: 0.35}
           Inactive: 0
         - TargetPlayer: {fileID: 5816107168862455818}
           Delay: {x: 0, y: 0}
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
         DebugActive: 0
         Players:
         - TargetPlayer: {fileID: 781757988}
-          Delay: {x: 0.5, y: 0}
+          Delay: {x: 0.8, y: 0}
           Inactive: 0
 --- !u!1 &5816107170041923030
 GameObject:
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -1516,7 +1516,7 @@ MonoBehaviour:
         DebugActive: 0
         Players:
         - TargetPlayer: {fileID: 5816107168322033125}
-          Delay: {x: 0, y: 0.8}
+          Delay: {x: 0, y: 0.7}
           Inactive: 0
         - TargetPlayer: {fileID: 5816107168471181110}
           Delay: {x: 0, y: 0}
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -2058,7 +2058,7 @@ Transform:
   m_GameObject: {fileID: 7475956196563276657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5816107170041923031}
@@ -2108,7 +2108,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 183653049, guid: b6caee5d95fb9b149b471a2ce30103bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Feedbacks: []
-  InitializationMode: 2
+  InitializationMode: 1
   SafeMode: 3
   Direction: 0
   AutoChangeDirectionOnEnd: 0
@@ -2349,9 +2349,10 @@ GameObject:
   - component: {fileID: 7475956197074418829}
   - component: {fileID: 6613928826820663229}
   - component: {fileID: 5637519950454538538}
+  - component: {fileID: 8570479642008864843}
   m_Layer: 0
   m_Name: Enemy@BossDragon
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2365,12 +2366,12 @@ Transform:
   m_GameObject: {fileID: 7475956197074418828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7475956196563276663}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6613928826820663229
 MonoBehaviour:
@@ -2389,8 +2390,9 @@ MonoBehaviour:
   dieFeedback: {fileID: 7475956196798878291}
   active: 0
   speed: 0
-  fireBall: {fileID: 3373812169471593489, guid: 8f5cdd974b136b246b1a05648cce2fcb, type: 3}
-  spawnLocation: {fileID: 781757987}
+  bossSpawnLocation: {fileID: 5865922731249219453, guid: f5cb0d55b00b12e48ab104a047d7e2fc, type: 3}
+  fireball: {fileID: 11400000, guid: 67a0702c28c83d240825d8547571ef35, type: 2}
+  fireballSpawnLocation: {fileID: 781757987}
 --- !u!61 &5637519950454538538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2404,7 +2406,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: 1}
+  m_Offset: {x: -0.96677446, y: 0.8504796}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2415,5 +2417,30 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13, y: 13}
+  m_Size: {x: 11.072846, y: 10.375085}
   m_EdgeRadius: 0
+--- !u!114 &8570479642008864843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7475956197074418828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cd926bb9d510543847bc79ae7379f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Preset: 0
+  CustomWireColor: {r: 0.56078434, g: 0, b: 0.08235294, a: 0.7921569}
+  CustomFillColor: {r: 0.85490197, g: 0, b: 0, a: 0.078431375}
+  CustomCenterColor: {r: 0.5294118, g: 0.14117648, b: 0.14117648, a: 0.6745098}
+  Alpha: 1
+  WireColor: {r: 0.56078434, g: 0, b: 0.08235294, a: 0.7921569}
+  FillColor: {r: 0.85490197, g: 0, b: 0, a: 0.078431375}
+  CenterColor: {r: 0.5294118, g: 0.14117648, b: 0.14117648, a: 0.6745098}
+  DrawFill: 1
+  DrawWire: 1
+  DrawCenter: 0
+  CenterMarkerRadius: 1
+  IncludeChildColliders: 0
