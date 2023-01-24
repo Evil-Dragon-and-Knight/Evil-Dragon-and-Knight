@@ -2627,7 +2627,7 @@ MonoBehaviour:
   attackFeedback: {fileID: 3373812168496223139}
   dieFeedback: {fileID: 3373812168877071749}
   active: 1
-  speed: 3
+  speed: 6
 --- !u!114 &6572651252387245170
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -64,7 +64,15 @@ public class SpawnController : MonoBehaviour
     {
         ObjectPooling.InactiveEveryActiveObject("Boss");
     }
-    
+
+    public void ResetBossPosition()
+    {
+        InactiveBoss();
+        GameObject temp = ObjectPooling.GetObject("Enemy@BossDragon");
+        temp.transform.position = bossDragonSpawnPoint.transform.position;
+        temp.GetComponent<BossDragon>().Reset();
+    }
+
     public void SpawnBoss()
     {
         GameObject temp = ObjectPooling.GetObject("Enemy@BossDragon");

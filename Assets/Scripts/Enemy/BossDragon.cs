@@ -5,6 +5,7 @@ using MoreMountains.Feedbacks;
 using UnityEngine;
 using MyBox;
 using Unity.VisualScripting;
+using Random = UnityEngine.Random;
 
 public class BossDragon : Enemy
 {
@@ -12,14 +13,33 @@ public class BossDragon : Enemy
     [SerializeField] private Transform bossSpawnLocation;
     [SerializeField] private ObjectPoolingItem fireball;
     [SerializeField] private Transform fireballSpawnLocation;
+
+    [Separator("BossDragon Attack Settings")] 
+    [SerializeField] [MinMaxRange(0, 10)]
+    private RangedFloat attackFrequency = new RangedFloat(2f, 5f); 
+    [SerializeField] private Transform[] attackLocations;
     
     private static bool canAttack = false;
+    private bool attacking = false;
 
     public override void Init()
     {
         canAttack = false;
         
         transform.position = new Vector3(13, bossSpawnLocation.position.y, bossSpawnLocation.position.z);
+
+        // Off On for Reset Feedbacks
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+
+        initFeedback.PlayFeedbacks();
+    }
+
+    public void Reset()
+    {
+        canAttack = false;
+        
+        transform.position = bossSpawnLocation.position;
 
         // Off On for Reset Feedbacks
         gameObject.SetActive(false);
@@ -56,19 +76,33 @@ public class BossDragon : Enemy
     }
 
     private void FixedUpdate()
-    {
-        if (transform.position.x <= bossSpawnLocation.position.x)
+    {   
+        MoveFront();
+        if (!attacking)
         {
-            // var position = transform.position;
-            // position = new Vector3(6, position.y, position.z);
-            // transform.position = position;
-            return;
+            RandomAttack();
         }
+    }
+
+    private void MoveFront()
+    {
+        if (transform.position.x <= bossSpawnLocation.position.x) return;
         transform.Translate(new Vector3(-1, 0, 0) * (2 * Time.deltaTime));
+    }
+    
+    private void RandomAttack()
+    {
+        if (!canAttack) return;
+        attacking = true;
+        transform.position = attackLocations[Random.Range(0, attackLocations.Length)].transform.position;
+        Attack();
+        
+        Invoke(nameof(RandomAttack), Random.Range(attackFrequency.Min, attackFrequency.Max + 1));
     }
     
     private void OnDisable()
     {
         canAttack = false;
+        attacking = false;
     }
 }

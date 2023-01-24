@@ -24,7 +24,7 @@ public class BossHP : MonoBehaviour
     public static void Init()
     {
         _done = false;
-        _fillAmount.UpdateValue(10);
+        _fillAmount.UpdateValue(15);
     }
     
     public static void DecreaseValue(int value)
@@ -50,6 +50,6 @@ public class BossHP : MonoBehaviour
     private void OnDisable()
     {
         _done = true;
-        _fillAmount.UpdateValue(10);
+        _fillAmount.UpdateValue(15);
     }
 }
