@@ -70,15 +70,18 @@ struct ObjStruct
     }
 }
 
-public class ObjectPooling : Singleton<ObjectPooling>
+public class ObjectPooling : MonoBehaviour
 {
     [DisplayInspector] [SerializeField]
-    private List<ObjectPoolingItem> _settings;
+    private List<ObjectPoolingItem> settings;
+    private static List<ObjectPoolingItem> _settings;
     
-    private Dictionary<string, ObjStruct> _objectList = new Dictionary<string, ObjStruct>();
+    private static Dictionary<string, ObjStruct> _objectList = new Dictionary<string, ObjStruct>();
 
     private void Awake()
     {
+        _settings = settings;
+
         foreach (ObjectPoolingItem setting in _settings)
         {
             ObjStruct temp = new ObjStruct().Init(setting);
@@ -94,7 +97,7 @@ public class ObjectPooling : Singleton<ObjectPooling>
         }
     }
     
-    private GameObject CreateObject(ObjStruct obj)
+    private static GameObject CreateObject(ObjStruct obj)
     {
         obj._objCanUse++;
         obj._initializeCount++;
@@ -105,7 +108,7 @@ public class ObjectPooling : Singleton<ObjectPooling>
         return temp;
     }
 
-    public GameObject GetObject(string name)
+    public static GameObject GetObject(string name)
     {
         if (_objectList.ContainsKey(name) == false) return null;
         GameObject temp = _objectList[name].GetObject();
@@ -121,8 +124,16 @@ public class ObjectPooling : Singleton<ObjectPooling>
         }
         return temp;
     }
+
+    public static void InactiveEveryActiveObject()
+    {
+        foreach (var obj in _settings)
+        {
+            _objectList[obj.name].InactiveObject();
+        }
+    }
     
-    public void InactiveEveryActiveObject(string tag)
+    public static void InactiveEveryActiveObject(string tag)
     {
         foreach (var obj in _settings)
         {
@@ -131,7 +142,7 @@ public class ObjectPooling : Singleton<ObjectPooling>
         }
     }
     
-    public void KillEveryActiveObject(string tag)
+    public static void KillEveryActiveObject(string tag)
     {
         foreach (var obj in _settings)
         {

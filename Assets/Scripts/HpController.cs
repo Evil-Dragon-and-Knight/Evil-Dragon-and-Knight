@@ -17,6 +17,7 @@ public class HpController : MonoBehaviour
     [SerializeField] private GameObject hpGameObject;
     [SerializeField] private FillAmount[] images;
 
+    private static bool _alive = true;
     [SerializeField] private UnityEvent dieEvents;
 #if UNITY_EDITOR
     [ButtonMethod]
@@ -36,6 +37,7 @@ public class HpController : MonoBehaviour
 
     public void Init()
     {
+        _alive = true;
         currentHp = _maxHp;
         UpdateImage();
     }
@@ -53,6 +55,12 @@ public class HpController : MonoBehaviour
         UpdateImage();
     }
 
+    private void Die()
+    {
+        _alive = false;
+        dieEvents.Invoke();
+    }
+
     private void UpdateImage()
     {
         int dump = Mathf.FloorToInt(currentHp / 2f);
@@ -67,6 +75,11 @@ public class HpController : MonoBehaviour
         {
             int v = currentHp - i * 2;
             images[i].UpdateValue(v < 0 ? 0 : v);
+        }
+        
+        if (_alive && currentHp <= 0)
+        {
+            Die();
         }
     }
     

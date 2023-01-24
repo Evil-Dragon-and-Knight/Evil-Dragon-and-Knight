@@ -32,7 +32,7 @@ public class BossDragon : Enemy
 
     public void SpawnFireBall()
     {
-        GameObject temp = ObjectPooling.Instance.GetObject(fireball.name);
+        GameObject temp = ObjectPooling.GetObject(fireball.name);
         temp.transform.position = fireballSpawnLocation.transform.position;
         temp.GetComponent<Enemy>().Init();
     }

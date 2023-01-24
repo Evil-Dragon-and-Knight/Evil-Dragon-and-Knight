@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour
 {
-    private HpController _player;
+    public HpController _player;
     private Enemy _enemy;
 
     private void Start()
@@ -22,6 +22,7 @@ public class AttackTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col.CompareTag("Player")) return;
+        if (_player != null) return;
         _player = col.GetComponent<HpController>();
         _enemy.Attack();
     }

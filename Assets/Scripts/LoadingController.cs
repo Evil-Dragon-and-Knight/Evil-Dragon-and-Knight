@@ -36,7 +36,7 @@ public class LoadingController : MonoBehaviour
             yield return null;
             if (_operation.progress >= 0.9f)
             {
-                Invoke(nameof(RequestOK), 0.5f);
+                Invoke(nameof(RequestOK), 3f);
             }
         }
     }
