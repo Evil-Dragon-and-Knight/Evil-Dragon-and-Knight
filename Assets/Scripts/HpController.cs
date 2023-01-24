@@ -17,7 +17,7 @@ public class HpController : MonoBehaviour
     [SerializeField] private GameObject hpGameObject;
     [SerializeField] private FillAmount[] images;
 
-    private static bool _alive = true;
+    private bool _alive = true;
     [SerializeField] private UnityEvent dieEvents;
 #if UNITY_EDITOR
     [ButtonMethod]
@@ -65,7 +65,6 @@ public class HpController : MonoBehaviour
     {
         int dump = Mathf.FloorToInt(currentHp / 2f);
         
-        
         for (int i = 0; i < dump; i++)
         {
             images[i].UpdateValue(2);
@@ -83,10 +82,8 @@ public class HpController : MonoBehaviour
         }
     }
     
-#if UNITY_EDITOR
     private void FixedUpdate()
     {
         UpdateImage();
     }
-#endif
 }

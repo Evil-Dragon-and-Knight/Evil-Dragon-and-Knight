@@ -18,6 +18,7 @@ public class BossDragon : Enemy
     [SerializeField] [MinMaxRange(0, 10)]
     private RangedFloat attackFrequency = new RangedFloat(2f, 5f); 
     [SerializeField] private Transform[] attackLocations;
+    [SerializeField] private GameObject target;
     
     private static bool canAttack = false;
     private bool attacking = false;
@@ -93,6 +94,8 @@ public class BossDragon : Enemy
     private void RandomAttack()
     {
         if (!canAttack) return;
+        target.gameObject.SetActive(true);
+        
         attacking = true;
         transform.position = attackLocations[Random.Range(0, attackLocations.Length)].transform.position;
         Attack();
@@ -104,5 +107,6 @@ public class BossDragon : Enemy
     {
         canAttack = false;
         attacking = false;
+        target.gameObject.SetActive(false);
     }
 }
