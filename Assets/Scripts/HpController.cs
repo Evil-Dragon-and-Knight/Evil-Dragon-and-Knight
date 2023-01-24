@@ -17,7 +17,7 @@ public class HpController : MonoBehaviour
     [SerializeField] private GameObject hpGameObject;
     [SerializeField] private FillAmount[] images;
 
-    private static bool _alive = true;
+    private bool _alive = true;
     [SerializeField] private UnityEvent dieEvents;
 #if UNITY_EDITOR
     [ButtonMethod]

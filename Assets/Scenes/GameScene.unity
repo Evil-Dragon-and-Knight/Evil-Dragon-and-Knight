@@ -10580,7 +10580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933dcf3b45a9b6a47b7400e111be5f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 150
+  timeRemaining: 15
   _text: {fileID: 408365173}
   uEvent:
     m_PersistentCalls:
@@ -22716,7 +22716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933dcf3b45a9b6a47b7400e111be5f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 90
+  timeRemaining: 9
   _text: {fileID: 968541722}
   uEvent:
     m_PersistentCalls:
