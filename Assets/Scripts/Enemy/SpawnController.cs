@@ -32,6 +32,11 @@ public class SpawnController : MonoBehaviour
     {
         spawnFrequency = new RangedFloat(1f, 2f);
     }
+    
+    public void BossAttackable(bool value)
+    {
+        BossDragon.BossAttackable(value);
+    }
 
     private void GetNewFrequency()
     {
