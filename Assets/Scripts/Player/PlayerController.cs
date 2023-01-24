@@ -12,36 +12,55 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ObjectPoolingItem blade;
     [SerializeField] private PlayerAttack playerAttack;
 
-    private int currentLocation;
+    [SerializeField] private GameObject skillInactive;
+    [SerializeField] private GameObject skillActive;
+
+    private int _currentLocation;
     private bool _canControl;
     private static readonly int Flying = Animator.StringToHash("Flying");
     private static readonly int Attack = Animator.StringToHash("Attack");
 
-    private float moveCoolDown;
-    private float currentMoveCoolDown;
+    private const float _defaultMoveCoolDown = 0.35f;
+    private float _moveCoolDown;
+    private float _currentMoveCoolDown;
     
-    private float attackCoolDown;
-    private float currentAttackCoolDown;
+    private const float _defaultAttackCoolDown = 10f;
+    private float _attackCoolDown;
+    private float _currentAttackCoolDown;
 
     private void Start()
     {
         Init();
+        
+        _moveCoolDown = 0f;
+        _currentMoveCoolDown = 0f;
+        
+        _attackCoolDown = 0f;
+        _currentAttackCoolDown = 0f;
+        
+        SkillActive();
     }
 
     public void Init()
     {
-        moveCoolDown = 0f;
-        currentMoveCoolDown = 0f;
-        
-        attackCoolDown = 0f;
-        currentAttackCoolDown = 0f;
-        
         _canControl = false;
-        currentLocation = locations.Length - 1;
-        transform.position = locations[currentLocation].position;
+        _currentLocation = locations.Length - 1;
+        transform.position = locations[_currentLocation].position;
         
         animator.ResetTrigger(Attack);
         animator.SetBool(Flying, false);
+    }
+
+    private void SkillActive()
+    {
+        skillInactive.SetActive(false);
+        skillActive.SetActive(true);
+    }
+
+    private void SkillInactive()
+    {
+        skillInactive.SetActive(true);
+        skillActive.SetActive(false);
     }
 
     public void Enable()
@@ -64,8 +83,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (!_canControl) return;
-        currentMoveCoolDown += Time.deltaTime;
-        currentAttackCoolDown += Time.deltaTime;
+        _currentMoveCoolDown += Time.deltaTime;
+        _currentAttackCoolDown += Time.deltaTime;
         // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
         MoveListener();
         AttackListener();
@@ -73,66 +92,82 @@ public class PlayerController : MonoBehaviour
 
     private void MoveListener()
     {
-        if (currentMoveCoolDown < moveCoolDown) return;
+        if (_currentMoveCoolDown < _moveCoolDown) return;
 
-        int newLocation = currentLocation;
+        int newLocation = _currentLocation;
 
         // UP
         if (Input.GetKeyDown(SettingManager.Instance.Key_UP[0]) || Input.GetKeyDown(SettingManager.Instance.Key_UP[1]))
         {
-            moveCoolDown = 0.25f;
-            currentMoveCoolDown = 0f;
-            
+            _moveCoolDown = _defaultMoveCoolDown;
+            _currentMoveCoolDown = 0f;
+
             newLocation -= 1;
             newLocation = newLocation < 0 ? 0 : newLocation;
             newLocation = newLocation > locations.Length - 1 ? locations.Length - 1 : newLocation;
+            
+            if (newLocation != _currentLocation)
+            {
+                playerAttack._enemy = null;
+            }
             
             animator.ResetTrigger(Attack);
             animator.SetBool(Flying, newLocation != locations.Length - 1);
             animator.SetTrigger(Attack);
 
-            currentLocation = newLocation;
-            transform.position = locations[currentLocation].position;
+            _currentLocation = newLocation;
+            transform.position = locations[_currentLocation].position;
             
-            Invoke(nameof(NormalAttack), 0.25f);
+            Invoke(nameof(NormalAttack), 0.35f);
             return;
         }
         
         // DOWN
         if (Input.GetKeyDown(SettingManager.Instance.Key_DOWN[0]) || Input.GetKeyDown(SettingManager.Instance.Key_DOWN[1]))
         {
-            moveCoolDown = 0.25f;
-            currentMoveCoolDown = 0f;
-            
+            _moveCoolDown = _defaultMoveCoolDown;
+            _currentMoveCoolDown = 0f;
+
             newLocation += 1;
             newLocation = newLocation < 0 ? 0 : newLocation;
             newLocation = newLocation > locations.Length - 1 ? locations.Length - 1 : newLocation;
+
+            if (newLocation != _currentLocation)
+            {
+                playerAttack._enemy = null;
+            }
             
             animator.ResetTrigger(Attack);
             animator.SetBool(Flying, newLocation != locations.Length - 1);
             animator.SetTrigger(Attack);
 
-            currentLocation = newLocation;
-            transform.position = locations[currentLocation].position;
+            _currentLocation = newLocation;
+            transform.position = locations[_currentLocation].position;
             
-            Invoke(nameof(NormalAttack), 0.25f);
+            Invoke(nameof(NormalAttack), 0.35f);
             return;
         }
     }
     
     private void AttackListener()
     {
-        if (currentMoveCoolDown < moveCoolDown) return;
-        if (currentAttackCoolDown < attackCoolDown) return;
+        if (_currentMoveCoolDown < _moveCoolDown) return;
+        if (_currentAttackCoolDown < _attackCoolDown)
+        {
+            SkillInactive();
+            return;
+        };
+
+        SkillActive();
         
         // ATTACK
         if (Input.GetKeyDown(SettingManager.Instance.Key_ATTACK[0]) || Input.GetKeyDown(SettingManager.Instance.Key_ATTACK[1]))
         {
-            moveCoolDown = 0.25f;
-            currentMoveCoolDown = 0f;
-            attackCoolDown = 5f;
-            currentAttackCoolDown = 0f;
-            
+            _moveCoolDown = _defaultMoveCoolDown;
+            _currentMoveCoolDown = 0f;
+            _attackCoolDown = _defaultAttackCoolDown;
+            _currentAttackCoolDown = 0f;
+
             animator.ResetTrigger(Attack);
             animator.SetTrigger(Attack);
             

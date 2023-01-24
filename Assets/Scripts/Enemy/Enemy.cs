@@ -41,10 +41,7 @@ public class Enemy : MonoBehaviour
     
     public virtual void Die()
     {
-        if (gameObject.GetComponent<AttackTrigger>()._player != null)
-        {
-            return;
-        }
+        if (gameObject.GetComponent<AttackTrigger>()._player != null) return;
         _walkTriggerOffAbsolute = true;
         dieFeedback.PlayFeedbacks();
     }

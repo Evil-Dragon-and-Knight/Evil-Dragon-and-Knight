@@ -23,6 +23,16 @@ public class SpawnController : MonoBehaviour
     private float _nextFrequency;
     private float _currentFrequency;
 
+    public void Level1()
+    {
+        spawnFrequency = new RangedFloat(2f, 5f);
+    }
+
+    public void Level2()
+    {
+        spawnFrequency = new RangedFloat(1f, 2f);
+    }
+
     private void GetNewFrequency()
     {
         _currentFrequency = 0f;

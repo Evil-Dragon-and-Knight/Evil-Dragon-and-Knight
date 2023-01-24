@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
@@ -71,6 +72,17 @@ public class Blade : MonoBehaviour
         if (active == false || _walkTrigger == false || _walkTriggerOffAbsolute) return;
         _rigidbody2D.MovePosition(_rigidbody2D.position + new Vector2(speed, 0f) * Time.fixedDeltaTime);
         // transform.Translate(new Vector3(-1, 0, 0) * (speed * Time.deltaTime));
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag($"DeadZone"))
+        {
+            dieFeedback.PlayFeedbacks();
+            return;
+        }
+        if (!col.CompareTag($"Enemy")) return;
+        col.GetComponent<Enemy>().Die();
     }
 
     private void OnEnable()

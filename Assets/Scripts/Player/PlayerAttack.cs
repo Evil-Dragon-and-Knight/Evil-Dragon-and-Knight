@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private Enemy _enemy;
+    public Enemy _enemy;
 
     private void Start()
     {
@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(_enemy == null) return;
         _enemy.Die();
+        _enemy = null;
     }
     
     private void OnTriggerEnter2D(Collider2D col)
