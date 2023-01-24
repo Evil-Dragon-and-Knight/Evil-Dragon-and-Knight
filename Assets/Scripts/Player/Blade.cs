@@ -11,6 +11,7 @@ public class Blade : MonoBehaviour
     [SerializeField] protected MMF_Player initFeedback;
     [SerializeField] protected MMF_Player attackFeedback;
     [SerializeField] protected MMF_Player dieFeedback;
+    [SerializeField] protected MMF_Player impulseFeedback;
 
     [Separator("Movement Settings")] 
     [SerializeField] private bool active;
@@ -81,6 +82,13 @@ public class Blade : MonoBehaviour
             dieFeedback.PlayFeedbacks();
             return;
         }
+
+        if (col.CompareTag($"Boss") && BossDragon.IsBossAttackable())
+        {
+            BossHP.DecreaseValue(1);
+            impulseFeedback.PlayFeedbacks();
+        }
+        
         if (!col.CompareTag($"Enemy")) return;
         col.GetComponent<Enemy>().Die();
     }

@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     [ConditionalField(nameof(active), false)] [PositiveValueOnly] [SerializeField]
     private float speed = 0f;
     private bool _walkTrigger = false;
-    private bool _walkTriggerOffAbsolute = false;
+    protected bool _walkTriggerOffAbsolute = false;
     protected Rigidbody2D _rigidbody2D;
 
     #region Feedbacks

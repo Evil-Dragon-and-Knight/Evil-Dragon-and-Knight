@@ -2371,7 +2371,7 @@ Transform:
   m_Children:
   - {fileID: 7475956196563276663}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6613928826820663229
 MonoBehaviour:
@@ -2393,6 +2393,13 @@ MonoBehaviour:
   bossSpawnLocation: {fileID: 5865922731249219453, guid: f5cb0d55b00b12e48ab104a047d7e2fc, type: 3}
   fireball: {fileID: 11400000, guid: 67a0702c28c83d240825d8547571ef35, type: 2}
   fireballSpawnLocation: {fileID: 781757987}
+  attackFrequency:
+    Min: 1.5275929
+    Max: 3.1103716
+  attackLocations:
+  - {fileID: 2794712680087111761, guid: a9fd7b66ca4e4c149b7464abf960f854, type: 3}
+  - {fileID: 5865922731249219453, guid: f5cb0d55b00b12e48ab104a047d7e2fc, type: 3}
+  - {fileID: 3683299019534209543, guid: 4462ceebecc138845b8ac883d50a5e2b, type: 3}
 --- !u!61 &5637519950454538538
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2406,7 +2413,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.96677446, y: 0.8504796}
+  m_Offset: {x: -0.8765776, y: -0.12787879}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2417,7 +2424,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.072846, y: 10.375085}
+  m_Size: {x: 10.788736, y: 3.2512953}
   m_EdgeRadius: 0
 --- !u!114 &8570479642008864843
 MonoBehaviour:
